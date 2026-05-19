@@ -1,117 +1,179 @@
-# 🏠 Housing Price Prediction using Machine Learning
+# 🏠 California Housing Price Prediction
 
-This project implements a machine learning pipeline to predict housing prices using the California housing dataset. It includes data preprocessing, feature engineering, and a Random Forest model.
-
----
-
-## 🚀 Features
-
-- Data preprocessing using pipelines  
-- Handling missing values  
-- Feature scaling and encoding  
-- Stratified sampling for balanced data  
-- Random Forest Regression model  
-- Model saving and loading using joblib  
-- Prediction on new input data  
+A Machine Learning project that predicts California housing prices using the California Housing dataset.  
+This project demonstrates an end-to-end ML workflow including data preprocessing, feature engineering, model training, serialization, and prediction generation using Scikit-learn pipelines.
 
 ---
 
-## 🛠️ Technologies Used
+## 🚀 Project Overview
 
-- Python  
-- NumPy  
-- Pandas  
-- Scikit-learn  
-- Joblib  
+The goal of this project is to build a regression model capable of predicting median house values based on various housing-related features such as:
+
+- Median income
+- Housing age
+- Total rooms
+- Population
+- Geographic location
+- Ocean proximity
+
+The project follows a production-style workflow with reusable preprocessing pipelines and saved trained models.
+
+---
+
+## ✨ Key Features
+
+- End-to-end Machine Learning pipeline
+- Data preprocessing using Scikit-learn pipelines
+- Missing value handling
+- Feature scaling and categorical encoding
+- Stratified train-test splitting
+- Random Forest Regression model
+- Model persistence using Joblib
+- Batch prediction support using CSV input
+- Clean and modular workflow
+
+---
+
+## 🛠️ Tech Stack
+
+- Python
+- NumPy
+- Pandas
+- Scikit-learn
+- Joblib
 
 ---
 
 ## 📂 Project Structure
 
-├── main.py              # Main script for training and inference  
-├── housing.csv          # Dataset  
-├── input_data.csv       # Test input data  
-├── output_data.csv      # Prediction output  
-├── model.pkl            # Saved trained model  
-├── pipeline.pkl         # Saved preprocessing pipeline  
+```bash
+California-House-Price-Prediction/
+│
+├── main.py              # Main training & prediction script
+├── housing.csv          # California housing dataset
+├── input_data.csv       # Input file for predictions
+├── output_data.csv      # Generated predictions
+├── model.pkl            # Saved trained model
+├── pipeline.pkl         # Saved preprocessing pipeline
+└── README.md
+```
 
 ---
 
-## ⚙️ How It Works
+## ⚙️ Machine Learning Workflow
 
-1. Data Loading  
-   Loads dataset from `housing.csv`  
+### 1. Data Loading
+The dataset is loaded using Pandas for preprocessing and analysis.
 
-2. Data Preprocessing  
-   - Handles missing values using median  
-   - Scales numerical features  
-   - Encodes categorical features using OneHotEncoder  
+### 2. Data Preprocessing
+The preprocessing pipeline includes:
+- Median imputation for missing values
+- Feature scaling using StandardScaler
+- One-hot encoding for categorical features
 
-3. Stratified Sampling  
-   Splits dataset based on income category for better distribution  
+### 3. Stratified Sampling
+Income categories are used to perform stratified sampling for better train-test distribution.
 
-4. Model Training  
-   Uses RandomForestRegressor to train the model  
+### 4. Model Training
+A `RandomForestRegressor` is trained on the processed dataset.
 
-5. Model Saving  
-   Saves trained model as `model.pkl` and pipeline as `pipeline.pkl`  
+### 5. Model Serialization
+The trained model and preprocessing pipeline are saved using Joblib for future inference.
+
+### 6. Prediction Pipeline
+New housing data can be passed through `input_data.csv` to generate predictions automatically.
+
+---
+
+## ▶️ How to Run the Project
+
+### Clone the Repository
+
+```bash
+git clone https://github.com/yourusername/California-House-Price-Prediction.git
+cd California-House-Price-Prediction
+```
+
+---
+
+### Install Dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### Run the Project
+
+```bash
+python main.py
+```
 
 ---
 
 ## 🔁 Training Mode
 
-If model file does not exist, run:
-
-python main.py
-
-The model will be trained and saved.
+If saved model files are not available:
+- The model will train automatically
+- `model.pkl` and `pipeline.pkl` will be generated
 
 ---
 
 ## 🔮 Prediction Mode
 
-If model already exists:
-- Loads model and pipeline  
-- Reads input from `input_data.csv`  
-- Generates predictions  
-- Saves output to `output_data.csv`  
+If model files already exist:
+- Existing model and pipeline are loaded
+- Input data is read from `input_data.csv`
+- Predictions are generated
+- Results are saved to `output_data.csv`
 
 ---
 
 ## 📊 Output
 
-Predicted values are stored in a column named:
+Predictions are stored in:
 
+```text
+output_data.csv
+```
+
+Predicted values are generated under the column:
+
+```text
 median_house_value
+```
 
 ---
 
-## 💡 Example Workflow
+## 📈 Future Improvements
 
-1. Run script first time → Model trains  
-2. Run again → Predictions generated  
-3. Check `output_data.csv` for results  
+- Hyperparameter tuning using GridSearchCV
+- Model evaluation metrics dashboard
+- XGBoost/LightGBM integration
+- Streamlit or Flask deployment
+- Interactive data visualization
+- Docker containerization
 
 ---
 
-## 🎯 Future Improvements
+## 🎯 Learning Outcomes
 
-- Add hyperparameter tuning  
-- Use advanced models like XGBoost  
-- Add visualization dashboard  
-- Deploy as web app using Flask or Streamlit  
+This project helped in understanding:
+- Machine Learning pipelines
+- Data preprocessing workflows
+- Regression modeling
+- Model persistence
+- Production-style ML structure
 
 ---
 
 ## 👨‍💻 Author
 
-Vansh Kashyap  
+Umang Chourasia
 
 ---
 
-## ⭐ Note
+## ⭐ Acknowledgment
 
-This project is suitable for:
-- Machine Learning beginners  
-- Data Science projects  
-- College mini-project submissions  
+This project uses the California Housing dataset available through Scikit-learn.
